@@ -27,21 +27,20 @@ class Song
   def self.artists
     @@artists.uniq
   end
-  
-  
-  #creating a hash called genre count which is initally empty
-#if the hash has the genre key, add the number one to it
-#if the hash does not have the genre key already existing, add it
 
   def self.genre_count
+    #creating an empty hash called genre_count
     genre_count = {}
+    #for the class variable genres, for each genre, see if it includes the new genre. If it already does, add a count of one to it. 
     @@genres.each do |genre|
       if genre_count.include?(genre)
         genre_count[genre] = genre_count[genre] + 1
+    #if it doesnt exist already within the hash, add it. 
       else
         genre_count[genre] = 1
       end
     end
+    #return the hash
     return genre_count
   end
   
