@@ -14,7 +14,6 @@ class Song
     @@count += 1
     @@genres << genre
     @@artists << artist
-    
   end
   
   def self.count
@@ -37,6 +36,7 @@ class Song
       else
         genre_count[genre] = 1
       end
+    end
   end
 
 
