@@ -38,6 +38,8 @@ class Song
       end
     end
   end
+  
+end
 
 
 #creating a hash called genre count which is initally empty
