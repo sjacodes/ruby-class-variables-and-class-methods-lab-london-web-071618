@@ -14,7 +14,6 @@ class Song
     @@count += 1
     @@genres << genre
     @@artists << artist
-    
   end
   
   def self.count
@@ -28,32 +27,36 @@ class Song
   def self.artists
     @@artists.uniq
   end
-  
+
   def self.genre_count
+    #creating an empty hash called genre_count
     genre_count = {}
-    
-    
-    
-    
-    
-    
-    
-    if @genre_count.include?
-      
-      
-      
-      
-    if @genre_count[genre] == nil
-      @genre_count[genre] = 0
-      @genre_count[genre] = genre_count[genre] + 1
-    else
-      return genre_count[genre]
+    #for the class variable genres, for each genre, see if it includes the new genre. If it already does, add a count of one to it. 
+    @@genres.each do |genre|
+      if genre_count.include?(genre)
+        genre_count[genre] = genre_count[genre] + 1
+    #if it doesnt exist already within the hash, add it. 
+      else
+        genre_count[genre] = 1
+      end
     end
+    #return the hash
+    return genre_count
   end
-    
+  
+  def self.artist_count
+    artist_count = {}
+    @@artists.each do |artist|
+      if artist_count.include?(artist)
+        artist_count[artist] = artist_count[artist] + 1
+      else
+        artist_count[artist] = 1
+      end
+    end
+    return artist_count
+  end
+  
 end
 
 
-#creating a hash called genre count which is initally empty
-#if the hash has the genre key, dont re-add the key, just add the the value
-#if the hash does not have the genre key already existing, add the genre key, along with the value associated with with( ie 1)
+
